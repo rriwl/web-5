@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор стоимости заказа</title>
+    <link rel="stylesheet" href="exampleStyles.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор стоимости заказа</h1>
+        <div class="form-group">
+            <label for="quantity">Количество товара:</label>
+            <input type="number" id="quantity" min="1" required>
+        </div>
+        <div class="form-group">
+            <label for="product">Выберите товар:</label>
+            <select id="product">
+                <option value="1">Товар 1 - $10</option>
+                <option value="2">Товар 2 - $20</option>
+                <option value="3">Товар 3 - $30</option>
+            </select>
+        </div>
+        <button class="btn" onclick="calculate()">Посчитать стоимость</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            var quantity = document.getElementById("quantity").value;
+            var product = document.getElementById("product").value;
+            var price;
+            
+            switch (product) {
+                case "1":
+                    price = 10;
+                    break;
+                case "2":
+                    price = 20;
+                    break;
+                case "3":
+                    price = 30;
+                    break;
+            }
+            
+            var total = quantity * price;
+            
+            document.getElementById("result").innerHTML = "Стоимость заказа: $" + total;
+        }
+    </script>
+</body>
+</html>
